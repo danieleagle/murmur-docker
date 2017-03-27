@@ -1,0 +1,17 @@
+version: '3'
+services:
+  murmur:
+    build: .
+    image: danieleagle/murmur:v1.2.19
+    container_name: Murmur
+    restart: always
+    ports:
+      - '9128:64738'
+      - '9128:64738/udp'
+    volumes:
+      - './volume_data/main:/var/murmur'
+      - './volume_data/config:/etc/murmur'
+networks:
+  default:
+    external:
+      name: main
