@@ -30,7 +30,7 @@ If no network has been created, run the following Docker command: `sudo docker n
 
 ## Port Mapping
 
-The external port used to map to the internal port that Murmur uses is 9128 (maps to 64738). This can certainly be changed but please be mindful of the effects. Additional configuration may be required as a result.
+The external port used to map to the internal port that Murmur uses is 51200 (maps to 64738). This can certainly be changed but please be mindful of the effects. Additional configuration may be required as a result.
 
 ## Data Volumes
 
