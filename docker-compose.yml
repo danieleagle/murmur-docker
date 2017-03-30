@@ -6,8 +6,8 @@ services:
     container_name: Murmur
     restart: always
     ports:
-      - '9128:64738'
-      - '9128:64738/udp'
+      - '51200:64738'
+      - '51200:64738/udp'
     volumes:
       - './volume_data/main:/var/murmur'
       - './volume_data/config:/etc/murmur'
