@@ -19,6 +19,9 @@ ARG murmurUid=1077
 RUN addgroup -g ${murmurUid} ${murmurUser} \
   && adduser -h /opt/murmur -u ${murmurUid} -G ${murmurUser} -s /bin/sh -D ${murmurUser}
 
+# Add Tini
+RUN apk add --update tini
+
 # Expose the appropriate ports
 EXPOSE 64738/tcp 64738/udp
 
@@ -28,6 +31,6 @@ VOLUME ["/var/murmur", "/etc/murmur"]
 # Switch to murmur user
 USER ${murmurUser}
 
-ENTRYPOINT ["/opt/murmur/murmur.x86", "-fg", "-v"]
+ENTRYPOINT ["/sbin/tini", "--", "/opt/murmur/murmur.x86", "-fg", "-v"]
 
 CMD ["-ini", "/etc/murmur/murmur.ini"]
